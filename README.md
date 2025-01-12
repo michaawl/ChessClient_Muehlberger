@@ -16,6 +16,25 @@ This repository serves as a guide for the TechDemo of the Continuous Delivery (C
 ## Repository mit Übungen
 https://github.com/michaawl/continuous_delivery_uebungen
 
+## Plugins
+
+ ### JUnit
+
+ ### jacoco
+ `mvn clean test jacoco:report`
+
+ Dieser Befehl erzeugt eine Ausgabe in target/site/jacoco/index.html
+
+ ### checkstyle
+ `mvn checkstyle:check`
+
+ Dieser Befehl erzeugt eine Ausgabe in target/checkstyle-checker.xml
+ 
+ ### surefire
+ `mvn surefire-report:report`
+
+ Dieser Befehl erzeugt eine Ausgabe der Testberichte und speichert sie in target/site/surefire-report.html
+
 ## test2
 
 ### test21
