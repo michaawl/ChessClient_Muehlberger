@@ -38,6 +38,10 @@ jobs:
         with:
           report_paths: '**/target/surefire-reports/*.xml'
 
+      - name: Install Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
 
       - name: Convert XML to PDF
         run: |
