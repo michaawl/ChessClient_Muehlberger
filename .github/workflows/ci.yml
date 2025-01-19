@@ -37,6 +37,9 @@ jobs:
         if: success() || failure() # Always run, even if tests fail
         with:
           report_paths: '**/target/surefire-reports/*.xml'
+          require_tests: true
+          fail_on_failed_tests: false
+          include_passed: true
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
