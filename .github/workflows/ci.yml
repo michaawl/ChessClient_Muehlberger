@@ -38,15 +38,15 @@ jobs:
         with:
           report_paths: '**/target/surefire-reports/*.xml'
 
-      - name: Install Pandoc
+      - name: Install Pandoc and LaTeX
         run: |
           sudo apt-get update
-          sudo apt-get install -y pandoc
+          sudo apt-get install -y pandoc texlive-latex-base
 
       - name: Convert XML to PDF
         run: |
           for file in target/surefire-reports/*.xml; do
-            pandoc "$file" -o "${file%.xml}.pdf"
+            pandoc "$file" -o "${file%.xml}.pdf" --from=xml --pdf-engine=xelatex
           done
 
       - name: Upload PDF Report
