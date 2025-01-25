@@ -7,7 +7,7 @@ on:
       - main
 
 permissions:
-  checks: write
+  packages: write
   contents: read
 
 jobs:
@@ -24,20 +24,9 @@ jobs:
       - name: Build and Test in Docker
         run: |
           docker-compose -f docker-compose-pipeline.yml up --abort-on-container-exit
-          # Copy test results
           docker cp maven_build:/workspace/target/surefire-reports ./test-results
-          # Copy Checkstyle report
           docker cp maven_build:/workspace/target/checkstyle-checker.xml ./checkstyle-report.xml || true
-          # Copy JaCoCo report
-          docker cp maven_build:/workspace/target/site/jacoco/index.html ./jacoco-report.html || true
-          # Copy Maven artifact
-          docker cp maven_build:/workspace/target/*.jar ./maven-artifact.jar || true
-
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-results
-          path: test-results/*.xml
+          docker cp maven_build:/workspace/target/gRPCClient-1.0-SNAPSHOT.jar ./chessClient.jar || true
 
       - name: Publish Test Report
         uses: mikepenz/action-junit-report@v4
@@ -63,5 +52,6 @@ jobs:
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: maven-artifact
-          path: maven-artifact.jar
+          name: chessClient-artifact
+          path: chessClient.jar
+
