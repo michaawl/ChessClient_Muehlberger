@@ -25,6 +25,9 @@ jobs:
         run: |
           docker-compose -f docker-compose-pipeline.yml up --abort-on-container-exit
           docker cp maven_build:/workspace/target/surefire-reports ./test-results
+          docker cp maven_build:/workspace/target/site/jacoco/index.html jacoco-report.html
+          docker cp maven_build:/workspace/target/checkstyle-checker.xml checkstyle-report.xml || true
+          run: docker cp maven_build:/workspace/target/*.jar maven-artifact.jar || true
 
       - name: Publish Test Report
         uses: mikepenz/action-junit-report@v4
@@ -35,26 +38,18 @@ jobs:
           fail_on_failure: false
           include_passed: true
 
-      - name: Extract JaCoCo Report
-        run: docker cp maven_build:/workspace/target/site/jacoco/index.html jacoco-report.html
-
       - name: Upload JaCoCo Report
         uses: actions/upload-artifact@v4
         with:
           name: jacoco-report
           path: jacoco-report.html
 
-      - name: Extract Checkstyle Report
-        run: docker cp maven_build:/workspace/target/checkstyle-checker.xml checkstyle-report.xml || true
-
       - name: Upload Checkstyle Report
         uses: actions/upload-artifact@v4
         with:
           name: checkstyle-report
           path: checkstyle-report.xml
-
-      - name: Extract Maven Artifact
-        run: docker cp maven_build:/workspace/target/*.jar maven-artifact.jar || true
+        
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
