@@ -6,13 +6,13 @@ services:
     container_name: maven_build
     working_dir: /workspace
     volumes:
-      volumes:
-        - .:/workspace
-        - ./test-results:/workspace/target/surefire-reports
-        - ./jacoco:/workspace/target/site/jacoco
-        - ./checkstyle:/workspace/target
-      command: >
-        mvn clean install &&
-        mvn test &&
-        mvn jacoco:report &&
-        mvn checkstyle:check
+      - .:/workspace
+      - ./test-results:/workspace/target/surefire-reports
+      - ./jacoco:/workspace/target/site/jacoco
+      - ./checkstyle:/workspace/target
+    tty: true
+    command: >
+      mvn clean install &&
+      mvn test &&
+      mvn jacoco:report &&
+      mvn checkstyle:check
