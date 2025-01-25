@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  maven:
+    image: maven:3.9.3-eclipse-temurin-21
+    container_name: maven_build
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+    command: >
+      mvn clean install &&
+      mvn test &&
+      mvn jacoco:report &&
+      mvn checkstyle:check

@@ -32,19 +32,15 @@ Es wird dringend empfohlen, diese Checkliste in Ihr eigenes Projekt-Repository z
 - [ x ] .gitignore angepasst: Stelle sicher, dass unnötige Dateien nicht im Repository landen (z. B. durch ein angepasstes .gitignore-File).
 
 ### 10% Automatisierung
-- [ ] Automatisierte Builds eingerichtet
-- [ ] Automatisierte Tests implementiert
-- [ ] Automatisierte Deployments konfiguriert
-- [ ] Automatisierte Code-Qualitätsanalyse: Setze statische Code-Analyse-Tools ein, um Codequalität automatisiert zu überprüfen.
+- [ x ] Automatisierte Builds eingerichtet
+- [ x ] Automatisierte Tests implementiert
+- [ x ] Automatisierte Deployments konfiguriert
+- [ x ] Automatisierte Code-Qualitätsanalyse: Setze statische Code-Analyse-Tools ein, um Codequalität automatisiert zu überprüfen.
 
 ### 10% Testing
-- [ ] (Unit) Tests geschrieben und automatisiert
+- [ x ] (Unit) Tests geschrieben und automatisiert
 - [ ] Integrationstests implementiert (optional)
 - [ ] End-to-End Tests eingerichtet (optional)
-
-### Deployment-Strategien
-- [ ] Deployment-Strategien identifizieren
-- [ ] Rollback-Strategien (optional)
 
 ### 10% Containerisierung
 - [ ] Docker oder ähnliche Technologien eingesetzt
@@ -59,10 +55,6 @@ Es wird dringend empfohlen, diese Checkliste in Ihr eigenes Projekt-Repository z
 ### 10% Sicherheit
 - [ ] Zugangsdaten sicher hinterlegt
 - [ ] Sicherheitsüberprüfungen: Integriere automatisierte Sicherheitstests (z. B. OWASP ZAP) in die Pipeline, um potenzielle Sicherheitslücken frühzeitig zu erkennen.
-
-### Datenbanken
-- [ ] Datenbank-Migrationen automatisiert
-- [ ] Datenbank-Backups und Recovery-Pläne
 
 ### 20% Abschluss und Dokumentation
 - [ ] Projekt-Dokumentation vervollständigt

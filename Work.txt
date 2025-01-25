@@ -1,2 +1,0 @@
-Client -> Deployment
-Server -> on docker Image

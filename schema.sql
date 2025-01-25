@@ -1,0 +1,28 @@
+CREATE TABLE Players (
+    PlayerId INT AUTO_INCREMENT PRIMARY KEY,
+    PlayerName VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Games (
+    GameId INT AUTO_INCREMENT PRIMARY KEY,
+    WhitePlayerId INT,
+    BlackPlayerId INT,
+    CurrentTurn VARCHAR(5) NOT NULL,
+    Status VARCHAR(10) NOT NULL,
+    IsVerified BOOLEAN NOT NULL,
+    StartTime DATETIME NOT NULL,
+    FOREIGN KEY (WhitePlayerId) REFERENCES Players(PlayerId),
+    FOREIGN KEY (BlackPlayerId) REFERENCES Players(PlayerId)
+);
+
+CREATE TABLE Moves (
+    MoveId INT AUTO_INCREMENT PRIMARY KEY,
+    GameId INT NOT NULL,
+    PlayerId INT NOT NULL,
+    PieceType VARCHAR(10) NOT NULL,
+    Origin VARCHAR(3) NOT NULL,
+    Destination VARCHAR(3) NOT NULL,
+    MoveTime DATETIME NOT NULL,
+    FOREIGN KEY (GameId) REFERENCES Games(GameId) ON DELETE CASCADE,
+    FOREIGN KEY (PlayerId) REFERENCES Players(PlayerId) ON DELETE CASCADE
+);
