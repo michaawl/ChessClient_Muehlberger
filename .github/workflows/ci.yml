@@ -25,7 +25,6 @@ jobs:
         run: |
           docker-compose -f docker-compose-pipeline.yml up --abort-on-container-exit
           docker cp maven_build:/workspace/target/surefire-reports ./test-results
-          docker cp maven_build:/workspace/target/site/jacoco/index.html jacoco-report.html
           docker cp maven_build:/workspace/target/checkstyle-checker.xml checkstyle-report.xml || true
           run: docker cp maven_build:/workspace/target/*.jar maven-artifact.jar || true
 
