@@ -1,18 +1,17 @@
-version: '3.8'
-
 services:
   maven:
-    image: maven:3.9.3-eclipse-temurin-21
+    image: maven:3.9-eclipse-temurin
     container_name: maven_build
     working_dir: /workspace
     volumes:
       - .:/workspace
-      - ./test-results:/workspace/target/surefire-reports
-      - ./jacoco:/workspace/target/site/jacoco
-      - ./checkstyle:/workspace/target
     tty: true
     command: >
+      sh -c "
+      ls -la &&
+      ls -la /workspace &&
       mvn clean install &&
       mvn test &&
       mvn jacoco:report &&
       mvn checkstyle:check
+      "

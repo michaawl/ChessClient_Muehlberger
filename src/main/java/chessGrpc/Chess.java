@@ -3309,6 +3309,7 @@ public final class Chess {
 
     /**
      * <pre>
+     *
      * </pre>
      *
      * <code>string game_id = 1;</code>
@@ -3316,6 +3317,7 @@ public final class Chess {
     java.lang.String getGameId();
     /**
      * <pre>
+     *
      * </pre>
      *
      * <code>string game_id = 1;</code>
@@ -3409,6 +3411,7 @@ public final class Chess {
     private volatile java.lang.Object gameId_;
     /**
      * <pre>
+     *
      * </pre>
      *
      * <code>string game_id = 1;</code>
@@ -3427,6 +3430,7 @@ public final class Chess {
     }
     /**
      * <pre>
+     *
      * </pre>
      *
      * <code>string game_id = 1;</code>
@@ -3755,6 +3759,7 @@ public final class Chess {
       private java.lang.Object gameId_ = "";
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>string game_id = 1;</code>
@@ -3773,6 +3778,7 @@ public final class Chess {
       }
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>string game_id = 1;</code>
@@ -3792,6 +3798,7 @@ public final class Chess {
       }
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>string game_id = 1;</code>
@@ -3808,6 +3815,7 @@ public final class Chess {
       }
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>string game_id = 1;</code>
@@ -3820,6 +3828,7 @@ public final class Chess {
       }
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>string game_id = 1;</code>
@@ -5475,6 +5484,7 @@ public final class Chess {
 
     /**
      * <pre>
+     *
      * </pre>
      *
      * <code>string game_id = 1;</code>
@@ -5482,6 +5492,7 @@ public final class Chess {
     java.lang.String getGameId();
     /**
      * <pre>
+     *
      * </pre>
      *
      * <code>string game_id = 1;</code>
@@ -5586,6 +5597,7 @@ public final class Chess {
     private volatile java.lang.Object gameId_;
     /**
      * <pre>
+     *
      * </pre>
      *
      * <code>string game_id = 1;</code>
@@ -5604,6 +5616,7 @@ public final class Chess {
     }
     /**
      * <pre>
+     *
      * </pre>
      *
      * <code>string game_id = 1;</code>
@@ -5959,6 +5972,7 @@ public final class Chess {
       private java.lang.Object gameId_ = "";
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>string game_id = 1;</code>
@@ -5977,6 +5991,7 @@ public final class Chess {
       }
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>string game_id = 1;</code>
@@ -5996,6 +6011,7 @@ public final class Chess {
       }
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>string game_id = 1;</code>
@@ -6012,6 +6028,7 @@ public final class Chess {
       }
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>string game_id = 1;</code>
@@ -6024,6 +6041,7 @@ public final class Chess {
       }
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>string game_id = 1;</code>
@@ -6124,6 +6142,7 @@ public final class Chess {
 
     /**
      * <pre>
+     *
      * </pre>
      *
      * <code>bool success = 1;</code>
@@ -6215,6 +6234,7 @@ public final class Chess {
     private boolean success_;
     /**
      * <pre>
+     *
      * </pre>
      *
      * <code>bool success = 1;</code>
@@ -6534,6 +6554,7 @@ public final class Chess {
       private boolean success_ ;
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>bool success = 1;</code>
@@ -6543,6 +6564,7 @@ public final class Chess {
       }
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>bool success = 1;</code>
@@ -6555,6 +6577,7 @@ public final class Chess {
       }
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>bool success = 1;</code>
@@ -6624,6 +6647,7 @@ public final class Chess {
 
     /**
      * <pre>
+     *
      * </pre>
      *
      * <code>string moveId = 1;</code>
@@ -6631,6 +6655,7 @@ public final class Chess {
     java.lang.String getMoveId();
     /**
      * <pre>
+     *
      * </pre>
      *
      * <code>string moveId = 1;</code>
@@ -6720,6 +6745,7 @@ public final class Chess {
     private volatile java.lang.Object moveId_;
     /**
      * <pre>
+     *
      * </pre>
      *
      * <code>string moveId = 1;</code>
@@ -6738,6 +6764,7 @@ public final class Chess {
     }
     /**
      * <pre>
+     *
      * </pre>
      *
      * <code>string moveId = 1;</code>
@@ -7062,6 +7089,7 @@ public final class Chess {
       private java.lang.Object moveId_ = "";
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>string moveId = 1;</code>
@@ -7080,6 +7108,7 @@ public final class Chess {
       }
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>string moveId = 1;</code>
@@ -7099,6 +7128,7 @@ public final class Chess {
       }
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>string moveId = 1;</code>
@@ -7115,6 +7145,7 @@ public final class Chess {
       }
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>string moveId = 1;</code>
@@ -7127,6 +7158,7 @@ public final class Chess {
       }
       /**
        * <pre>
+       *
        * </pre>
        *
        * <code>string moveId = 1;</code>
