@@ -7,8 +7,8 @@ on:
       - main
 
 permissions:
-    checks: write
-    contents: read
+  checks: write
+  contents: read
 
 jobs:
   build:
@@ -18,54 +18,53 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '21'
+      - name: Set up Docker Compose
+        run: sudo apt-get update && sudo apt-get install -y docker-compose
 
-      - name: Build with Maven
-        run: mvn clean install
+      - name: Build and Test in Docker
+        run: docker-compose -f docker-compose-pipeline.yml up --abort-on-container-exit
 
-      - name: Run Unit Tests
-        run: mvn test || true # Continue even if tests fail
-
-      - name: Generate JaCoCo Coverage Report
-        run: mvn jacoco:report
+      - name: Extract JaCoCo Report
+        run: cp target/site/jacoco/index.html jacoco-report.html
 
       - name: Upload JaCoCo Report
         uses: actions/upload-artifact@v4
         with:
           name: jacoco-report
-          path: target/site/jacoco/index.html
+          path: jacoco-report.html
 
-      - name: Run Checkstyle
-        run: mvn checkstyle:check || true
+      - name: Extract Checkstyle Report
+        run: cp target/checkstyle-checker.xml checkstyle-report.xml || true
 
       - name: Upload Checkstyle Report
         uses: actions/upload-artifact@v4
         with:
           name: checkstyle-report
-          path: target/checkstyle-checker.xml
+          path: checkstyle-report.xml
+
+      - name: Extract Test Results
+        run: cp target/surefire-reports/*.xml test-results/ || true
 
       - name: Upload Test Results
         uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: target/surefire-reports/*.xml
+          path: test-results/*.xml
 
       - name: Publish Test Report
         uses: mikepenz/action-junit-report@v4
-        if: success() || failure() # Always run, even if tests fail
+        if: always()
         with:
-          report_paths: '**/target/surefire-reports/*.xml'
+          report_paths: '**/test-results/*.xml'
           require_tests: true
           fail_on_failed_tests: false
           include_passed: true
+
+      - name: Extract Maven Artifact
+        run: cp target/*.jar maven-artifact.jar || true
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
           name: maven-artifact
-          path: target/*.jar
-
+          path: maven-artifact.jar
