@@ -1,26 +1,71 @@
- name: ChessClient CI
- 
- on:
-   push:
-     branches:
-       - main
-   pull_request:
-     branches:
-       - main
- 
- jobs:
-   build:
-     runs-on: ubuntu-latest
- 
-     steps:
-       - name: Checkout code
-         uses: actions/checkout@v4
- 
-       - name: Set up JDK 21
-         uses: actions/setup-java@v4
-         with:
-           distribution: 'temurin'
-           java-version: '21'
- 
-       - name: Build with Maven
-         run: mvn clean install
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+    checks: write
+    contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Build with Maven
+        run: mvn clean install
+
+      - name: Run Unit Tests
+        run: mvn test || true # Continue even if tests fail
+
+      - name: Generate JaCoCo Coverage Report
+        run: mvn jacoco:report
+
+      - name: Upload JaCoCo Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report
+          path: target/site/jacoco/index.html
+
+      - name: Run Checkstyle
+        run: mvn checkstyle:check || true
+
+      - name: Upload Checkstyle Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: checkstyle-report
+          path: target/checkstyle-checker.xml
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: target/surefire-reports/*.xml
+
+      - name: Publish Test Report
+        uses: mikepenz/action-junit-report@v4
+        if: success() || failure() # Always run, even if tests fail
+        with:
+          report_paths: '**/target/surefire-reports/*.xml'
+          require_tests: true
+          fail_on_failed_tests: false
+          include_passed: true
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: maven-artifact
+          path: target/*.jar
+
