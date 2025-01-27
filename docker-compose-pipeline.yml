@@ -9,7 +9,7 @@ services:
     command: >
       sh -c "
       mvn clean install &&
-      mvn test && 
+      mvn test || exit 1 &&
       mvn jacoco:report;
       mvn checkstyle:check || true
       "
