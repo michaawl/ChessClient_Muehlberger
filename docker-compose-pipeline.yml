@@ -10,6 +10,6 @@ services:
       sh -c "
       mvn clean install &&
       mvn test && 
-      mvn jacoco:report &&
+      mvn jacoco:report;
       mvn checkstyle:check || true
       "
