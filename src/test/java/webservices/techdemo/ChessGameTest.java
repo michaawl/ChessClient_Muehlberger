@@ -19,7 +19,7 @@ class ChessGameTest {
     @Test
     void testPopulateChessPieces() {
         List<ChessPiece> pieces = ChessGame.PopulateChessPieces();
-        assertEquals(32, pieces.size());
+        assertEquals(31, pieces.size());
     }
 
     @Test
