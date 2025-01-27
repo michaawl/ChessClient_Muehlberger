@@ -43,21 +43,21 @@ Es wird dringend empfohlen, diese Checkliste in Ihr eigenes Projekt-Repository z
 - [ ] End-to-End Tests eingerichtet (optional)
 
 ### 10% Containerisierung
-- [ ] Docker oder ähnliche Technologien eingesetzt
-- [ ] Integration in eine Build-Pipeline
+- [ x ] Docker oder ähnliche Technologien eingesetzt
+- [ x ] Integration in eine Build-Pipeline
 
 ### 20% Infrastruktur- und Konfigurationsmanagement
-- [ ] Template Konfigurationsdateien versioniert und zentralisiert
-- [ ] Konfigurationsdateien ausgenommen
+- [ x ] Template Konfigurationsdateien versioniert und zentralisiert
+- [ x ] Konfigurationsdateien ausgenommen
 - [ ] Verwendung in einer Build-Pipeline
 - [ ] Infrastructure as Code (IaC): Nutze Tools wie Terraform oder Ansible, um die Infrastruktur als Code zu verwalten und sicherzustellen, dass Deployments wiederholbar sind.
 
 ### 10% Sicherheit
-- [ ] Zugangsdaten sicher hinterlegt
+- [ x ] Zugangsdaten sicher hinterlegt
 - [ ] Sicherheitsüberprüfungen: Integriere automatisierte Sicherheitstests (z. B. OWASP ZAP) in die Pipeline, um potenzielle Sicherheitslücken frühzeitig zu erkennen.
 
 ### 20% Abschluss und Dokumentation
-- [ ] Projekt-Dokumentation vervollständigt
+- [ x ] Projekt-Dokumentation vervollständigt
 - [ ] Branching-Strategie dokumentieren: Definiere eine Branching-Strategie (z. B. GitFlow) und dokumentiere die Entscheidungsfindung.
-- [ ] Pipeline-Dokumentation: Erstelle eine vollständige technische Dokumentation deiner CI/CD-Pipeline, einschließlich aller verwendeten Tools, Skripte und Konfigurationen.
-- [ ] Build Pipeline spezifizieren: Stelle sicher, dass alle Schritte der CI/CD-Pipeline klar definiert sind, inklusive Test-, Build- und Deployment-Schritte.
+- [ x ] Pipeline-Dokumentation: Erstelle eine vollständige technische Dokumentation deiner CI/CD-Pipeline, einschließlich aller verwendeten Tools, Skripte und Konfigurationen.
+- [ x ] Build Pipeline spezifizieren: Stelle sicher, dass alle Schritte der CI/CD-Pipeline klar definiert sind, inklusive Test-, Build- und Deployment-Schritte.
